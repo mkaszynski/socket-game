@@ -35,9 +35,9 @@ try:
                 conn.send(str(pos).encode())
                 data = conn.recv(1024).decode()
                 # if data:
-                map1 = pygame.Rect(ast.literal_eval(data)[0], ast.literal_eval(data)[1], 20, 20)
+                map1 = pygame.Rect(ast.literal_eval(data)[0] - pos[0], ast.literal_eval(data)[1] - pos[1], 20, 20)
                 pygame.draw.rect(screen, (0, 0, 0), map1)
-                map1 = pygame.Rect(pos[0], pos[1], 20, 20)
+                map1 = pygame.Rect(600, 300, 20, 20)
                 pygame.draw.rect(screen, (0, 0, 0), map1)
                 
                 time.sleep(1/60)
