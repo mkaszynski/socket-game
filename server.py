@@ -49,6 +49,8 @@ except KeyboardInterrupt:
     print('Received Ctrl-C')
 except (ConnectionResetError, BrokenPipeError):
     print('Client disconnected.')
+except Exception as e:
+    print(f'unhandled exception {str(e)}')
 
 print('Exiting server and closing socket')
 s.close()
