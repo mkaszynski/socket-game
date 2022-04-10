@@ -33,7 +33,7 @@ try:
                 if keys[pygame.K_a]:
                     pos[1] += 1
                 conn.send(str(pos).encode())
-                data = conn.recv(1024)
+                data = conn.recv(1024).decode()
                 # if data:
                 map1 = pygame.Rect(ast.literal_eval(data)[0], ast.literal_eval(data)[1], 20, 20)
                 pygame.draw.rect(screen, (255, 255, 255), map1)

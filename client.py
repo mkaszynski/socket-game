@@ -45,6 +45,7 @@ while True:
     s.send(str(pos).encode())
     data = s.recv(1024)
     # if data:
+    data = data.decode()
     map1 = pygame.Rect(ast.literal_eval(data)[0], ast.literal_eval(data)[1], 20, 20)
     pygame.draw.rect(screen, (255, 255, 255), map1)
     map1 = pygame.Rect(pos[0], pos[1], 20, 20)
