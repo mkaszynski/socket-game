@@ -44,7 +44,7 @@ while True:
     s.send(bytes(pos))
     data = s.recv(1024)
     if data:
-        map1 = pygame.Rect(list(data[0]), list(data[1]), 20, 20)
+        map1 = pygame.Rect(list(data)[0], list(data)[1], 20, 20)
         pygame.draw.rect(screen, (0, 0, 0), map1)
         map1 = pygame.Rect(pos[0], pos[1], 20, 20)
         pygame.draw.rect(screen, (0, 0, 0), map1)

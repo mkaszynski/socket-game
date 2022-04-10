@@ -34,7 +34,7 @@ try:
                 conn.send(bytes(pos))
                 data = conn.recv(1024)
                 if data:
-                    map1 = pygame.Rect(list(data[0]), list(data[1]), 20, 20)
+                    map1 = pygame.Rect(list(data)[0], list(data)[1], 20, 20)
                     pygame.draw.rect(screen, (255, 255, 255), map1)
                     map1 = pygame.Rect(pos[0], pos[1], 20, 20)
                     pygame.draw.rect(screen, (255, 255, 255), map1)
