@@ -39,7 +39,10 @@ try:
                 pygame.draw.rect(screen, (255, 255, 255), map1)
                 map1 = pygame.Rect(pos[0], pos[1], 20, 20)
                 pygame.draw.rect(screen, (255, 255, 255), map1)
+                
                 time.sleep(1/60)
+                
+                pygame.display.flip()
                     
 
 except KeyboardInterrupt:
