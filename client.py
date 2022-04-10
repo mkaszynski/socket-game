@@ -38,9 +38,9 @@ while True:
         pos[0] += 1
     if keys[pygame.K_a]:
         pos[0] -= 1
-    if keys[pygame.K_d]:
+    if keys[pygame.K_w]:
         pos[1] -= 1
-    if keys[pygame.K_a]:
+    if keys[pygame.K_s]:
         pos[1] += 1
     s.send(str(pos).encode())
     data = s.recv(1024)
