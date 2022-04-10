@@ -31,10 +31,10 @@ while True:
         pos += 1
     if keys[pygame.K_a]:
         pos += 1
-    s.send(pos.encode())
+    s.send(str(pos).encode())
     data = s.recv(1024)
     if data:
-        print(data.decode())
+        print(int(data.decode()))
         print(pos)
 
 s.close()

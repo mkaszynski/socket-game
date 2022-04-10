@@ -26,10 +26,10 @@ try:
                     pos += 1
                 if keys[pygame.K_a]:
                     pos -= 1
-                conn.send(pos.encode())
+                conn.send(str(pos).encode())
                 data = conn.recv(1024)
                 if data:
-                    print(data.decode())
+                    print(int(data.decode()))
                     print(pos)
                 time.sleep(0.2)
                     
