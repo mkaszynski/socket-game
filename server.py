@@ -36,8 +36,6 @@ try:
                 if data:
                     map1 = pygame.Rect(int(data.decode())[0], int(data.decode())[1], 20, 20)
                     pygame.draw.rect(screen, (0, 0, 0), map1)
-                    print(int(data.decode()))
-                    print(pos)
                     map1 = pygame.Rect(pos[0], pos[1], 20, 20)
                     pygame.draw.rect(screen, (0, 0, 0), map1)
                 time.sleep(1/60)

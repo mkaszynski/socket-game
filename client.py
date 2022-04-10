@@ -28,6 +28,7 @@ print(f"the socket has successfully connected to {host_ip}")
 while True:
     pygame.event.poll()
     keys = pygame.key.get_pressed()
+    screen.fill((255, 255, 255))
     if keys[pygame.K_d]:
         pos[0] += 1
     if keys[pygame.K_a]:
@@ -39,8 +40,10 @@ while True:
     s.send(str(pos).encode())
     data = s.recv(1024)
     if data:
-        print(int(data.decode()))
-        print(pos)
+        map1 = pygame.Rect(int(data.decode())[0], int(data.decode())[1], 20, 20)
+        pygame.draw.rect(screen, (0, 0, 0), map1)
+        map1 = pygame.Rect(pos[0], pos[1], 20, 20)
+        pygame.draw.rect(screen, (0, 0, 0), map1)
     time.sleep(1/60)
 
 s.close()
