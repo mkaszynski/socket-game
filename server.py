@@ -23,7 +23,7 @@ try:
 
 except KeyboardInterrupt:
     print('Received Ctrl-C')
-except BrokenPipeError:
+except (ConnectionResetError, BrokenPipeError):
     print('Client disconnected.')
 
 print('Exiting server and closing socket')

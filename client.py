@@ -16,7 +16,7 @@ except socket.error as err:
 # default port for socket
 port = 60001
 
-host_ip = '192.168.0.56' 
+host_ip = '192.168.0.149' 
 # connecting to the server
 s.connect((host_ip, port))
  
@@ -37,7 +37,6 @@ while True:
     elif cmd == "receive":
         data = s.recv(1024)
         if data:
-            breakpoint()
             print('Received:', data.decode())
         else:
             print("no data from server")
