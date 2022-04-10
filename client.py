@@ -27,10 +27,11 @@ while True:
     data = s.recv(1024)
     if data:
         print('Received: ', data.decode())
-    message = input("input: ")
-    if message == "exit":
-        break
-    s.send(message.encode())
+    else:
+        message = input("input: ")
+        if message == "exit":
+            break
+        s.send(message.encode())
 
 s.close()
 

@@ -16,9 +16,9 @@ try:
                 if data:
                     print('Received ', data.decode())
 
-                    # simply echo back the message
-                message = input('input: ')
-                conn.send(message.encode())
+                else:
+                    message = input('input: ')
+                    conn.send(message.encode())
 
 except KeyboardInterrupt:
     print('Received Ctrl-C')
