@@ -4,7 +4,7 @@ import pygame
 
 pygame.init()
 
-screen = pygame.display.set_mode((1200, 600))
+screen = pygame.display.set_mode([1200, 600])
 
 pos = [0, 0]
 
@@ -34,7 +34,7 @@ try:
                 conn.send(str(pos).encode())
                 data = conn.recv(1024)
                 if data:
-                    map1 = pygame.Rect(int(data.decode())[0], int(data.decode())[1], 20, 20)
+                    map1 = pygame.Rect(list(data.decode())[0], list(data.decode())[1], 20, 20)
                     pygame.draw.rect(screen, (0, 0, 0), map1)
                     map1 = pygame.Rect(pos[0], pos[1], 20, 20)
                     pygame.draw.rect(screen, (0, 0, 0), map1)
