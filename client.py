@@ -20,7 +20,11 @@ port = 60001
 
 host_ip = '192.168.0.149' 
 # connecting to the server
-s.connect((host_ip, port))
+try:
+    s.connect((host_ip, port))
+except:
+    print(f'host {host_ip} is not running')
+    sys.exit()
  
 print(f"the socket has successfully connected to {host_ip}")
 
@@ -37,10 +41,10 @@ while True:
         pos[1] -= 1
     if keys[pygame.K_a]:
         pos[1] += 1
-    s.send(str(pos).encode())
+    s.send(pos)
     data = s.recv(1024)
     if data:
-        map1 = pygame.Rect(list(data.decode())[0], list(data.decode())[1], 20, 20)
+        map1 = pygame.Rect(data[0], data[1], 20, 20)
         pygame.draw.rect(screen, (0, 0, 0), map1)
         map1 = pygame.Rect(pos[0], pos[1], 20, 20)
         pygame.draw.rect(screen, (0, 0, 0), map1)

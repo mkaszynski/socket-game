@@ -31,13 +31,13 @@ try:
                     pos[1] -= 1
                 if keys[pygame.K_a]:
                     pos[1] += 1
-                conn.send(str(pos).encode())
+                conn.send(pos)
                 data = conn.recv(1024)
                 if data:
-                    map1 = pygame.Rect(list(data.decode())[0], list(data.decode())[1], 20, 20)
-                    pygame.draw.rect(screen, (0, 0, 0), map1)
+                    map1 = pygame.Rect(data[0], data[1], 20, 20)
+                    pygame.draw.rect(screen, (255, 255, 255), map1)
                     map1 = pygame.Rect(pos[0], pos[1], 20, 20)
-                    pygame.draw.rect(screen, (0, 0, 0), map1)
+                    pygame.draw.rect(screen, (255, 255, 255), map1)
                 time.sleep(1/60)
                     
 
