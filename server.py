@@ -12,14 +12,14 @@ try:
         with conn:
             print(f"Connection opened at {addr}")
             while True:
+                message = input('input: ')
                 data = conn.recv(1024)
                 if data:
-                    print('Received', data.decode())
+                    print('Received ', data.decode())
 
                     # simply echo back the message
-                    message_back = f"Hello, I (server) received: {data.decode()}\n"
+                    message_back = message
                     conn.send(message_back.encode())
-                    print(f'sent reply: {message_back}')
 
 except KeyboardInterrupt:
     print('Received Ctrl-C')

@@ -22,26 +22,15 @@ s.connect((host_ip, port))
  
 print(f"the socket has successfully connected to {host_ip}")
 
-print('Available commands:')
-print('-    Type "exit" to exit this program.')
-print('-    Type "send" to send text.')
-print('-    Type "receive" to check if there are any messages from the server.')
 
 while True:
-    cmd = input("Command: ")
-    if cmd == "exit":
+    message = input("input: ")
+    if message == "exit":
         break
-    elif cmd == "send":
-        text = input("Text to send: ")
-        s.send(text.encode())
-    elif cmd == "receive":
-        data = s.recv(1024)
-        if data:
-            print('Received:', data.decode())
-        else:
-            print("no data from server")
-    else:
-        print(f'Invalid command "{cmd}"')
+    s.send(message.encode())
+    data = s.recv(1024)
+    if data:
+        print('Received: ', data.decode())
 
 s.close()
 
