@@ -4,9 +4,9 @@ import pygame
 
 pygame.init()
 
-screen = pygame.display.set_mode((100, 100))
+screen = pygame.display.set_mode((1200, 600))
 
-pos = 0
+pos = [0, 0]
 
 HOST = "0.0.0.0"  # Standard loopback interface address (localhost)
 PORT = 60001  # Port to listen on (non-privileged ports are > 1023)
@@ -20,18 +20,27 @@ try:
         with conn:
             print(f"Connection opened at {addr}")
             while True:
+                screen.fill((255, 255, 255))
                 pygame.event.poll()
                 keys = pygame.key.get_pressed()
                 if keys[pygame.K_d]:
-                    pos += 1
+                    pos[0] += 1
                 if keys[pygame.K_a]:
-                    pos -= 1
+                    pos[0] -= 1
+                if keys[pygame.K_d]:
+                    pos[1] -= 1
+                if keys[pygame.K_a]:
+                    pos[1] += 1
                 conn.send(str(pos).encode())
                 data = conn.recv(1024)
                 if data:
+                    map1 = pygame.Rect(int(data.decode())[0], int(data.decode())[1], 20, 20)
+                    pygame.draw.rect(screen, (0, 0, 0), map1)
                     print(int(data.decode()))
                     print(pos)
-                time.sleep(0.2)
+                    map1 = pygame.Rect(pos[0], pos[1], 20, 20)
+                    pygame.draw.rect(screen, (0, 0, 0), map1)
+                time.sleep(1/60)
                     
 
 except KeyboardInterrupt:
