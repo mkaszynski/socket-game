@@ -35,13 +35,13 @@ while True:
     pygame.event.poll()
     keys = pygame.key.get_pressed()
     if keys[pygame.K_d]:
-        pos[0] += 1
+        pos[0] += 5
     if keys[pygame.K_a]:
-        pos[0] -= 1
+        pos[0] -= 5
     if keys[pygame.K_w]:
-        pos[1] -= 1
+        pos[1] -= 5
     if keys[pygame.K_s]:
-        pos[1] += 1
+        pos[1] += 5
     s.send(str(pos).encode())
     data = s.recv(1024)
     # if data:
