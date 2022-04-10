@@ -12,13 +12,12 @@ try:
         with conn:
             print(f"Connection opened at {addr}")
             while True:
+                message = input('input: ')
+                conn.send(message.encode())
                 data = conn.recv(1024)
                 if data:
                     print('Received ', data.decode())
-
-                else:
-                    message = input('input: ')
-                    conn.send(message.encode())
+                    
 
 except KeyboardInterrupt:
     print('Received Ctrl-C')

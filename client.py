@@ -24,14 +24,13 @@ print(f"the socket has successfully connected to {host_ip}")
 
 
 while True:
+    message = input("input: ")
+    if message == "exit":
+        break
+    s.send(message.encode())
     data = s.recv(1024)
     if data:
         print('Received: ', data.decode())
-    else:
-        message = input("input: ")
-        if message == "exit":
-            break
-        s.send(message.encode())
 
 s.close()
 
