@@ -6,7 +6,7 @@ import ast
 
 pygame.init()
 
-pos = [0, 0]
+pos = [0, 100]
 
 screen = pygame.display.set_mode([1200, 600])
 
@@ -50,6 +50,10 @@ while True:
     pygame.draw.rect(screen, (0, 0, 0), map1)
     map1 = pygame.Rect(600, 300, 20, 20)
     pygame.draw.rect(screen, (0, 0, 0), map1)
+    
+    if pos[0] - 20 < ast.literal_eval(data)[0] and pos[0] + 20 > ast.literal_eval(data)[0]:
+        if pos[1] - 20 < ast.literal_eval(data)[1] and pos[1] + 20 > ast.literal_eval(data)[1]:
+            pos = [0, 0]
     
     time.sleep(1/60)
     
