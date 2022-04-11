@@ -53,7 +53,15 @@ while True:
     
     if pos[0] - 20 < ast.literal_eval(data)[0] and pos[0] + 20 > ast.literal_eval(data)[0]:
         if pos[1] - 20 < ast.literal_eval(data)[1] and pos[1] + 20 > ast.literal_eval(data)[1]:
-            pos = [0, 100]
+            if keys[pygame.K_s]:
+                if pos[0] > ast.literal_eval(data)[0]:
+                    pos[0] -= 1
+                else:
+                    pos[0] += 1
+                if pos[1] > ast.literal_eval(data)[1]:
+                    pos[1] -= 1
+                else:
+                    pos[1] += 1
     
     time.sleep(1/60)
     
