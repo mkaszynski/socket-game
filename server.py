@@ -2,6 +2,9 @@ import socket
 import time
 import pygame
 import ast
+import random
+
+prey = random.choice([True, False])
 
 pygame.init()
 
