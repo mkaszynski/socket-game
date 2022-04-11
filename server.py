@@ -36,7 +36,7 @@ try:
                 data = conn.recv(1024)
                 data = data.decode()
                 # if data:
-                map1 = pygame.Rect(pos[0] + ast.literal_eval(data)[0], pos[1] + ast.literal_eval(data)[1], 20, 20)
+                map1 = pygame.Rect((pos[0] + ast.literal_eval(data)[0])*-1, (pos[1] + ast.literal_eval(data)[1])*-1, 20, 20)
                 pygame.draw.rect(screen, (0, 0, 0), map1)
                 map1 = pygame.Rect(600, 300, 20, 20)
                 pygame.draw.rect(screen, (0, 0, 0), map1)
