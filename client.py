@@ -9,7 +9,7 @@ pygame.init()
 pos = [0, 0]
 
 screen = pygame.display.set_mode([1200, 600])
- 
+
 try:
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     print ("Socket successfully created")
