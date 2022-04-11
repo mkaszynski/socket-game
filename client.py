@@ -48,8 +48,6 @@ while True:
     data = data.decode()
     map1 = pygame.Rect((ast.literal_eval(data)[0] - pos[0]) + 600, (ast.literal_eval(data)[1] - pos[1]) + 300, 20, 20)
     pygame.draw.rect(screen, (0, 0, 0), map1)
-    map1 = pygame.Rect((0 - pos[0]) + 600, (0 - pos[1]) + 300, 200, 200)
-    pygame.draw.rect(screen, (0, 0, 0), map1)
     map1 = pygame.Rect(600, 300, 20, 20)
     pygame.draw.rect(screen, (0, 0, 0), map1)
     
