@@ -53,7 +53,7 @@ while True:
     
     if pos[0] - 20 < ast.literal_eval(data)[0] and pos[0] + 20 > ast.literal_eval(data)[0]:
         if pos[1] - 20 < ast.literal_eval(data)[1] and pos[1] + 20 > ast.literal_eval(data)[1]:
-            pos = [0, 0]
+            pos = [0, 100]
     
     time.sleep(1/60)
     
